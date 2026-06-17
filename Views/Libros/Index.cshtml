@@ -1,0 +1,33 @@
+﻿@model IEnumerable<T3_HUACCHA_ANGEL.Models.Libro>
+<div class="d-flex justify-content-between align-items-center my-4">
+    <h2>Listado de Libros - T3</h2>
+    <a asp-action="Create" class="btn btn-primary">Registrar Nuevo Libro</a>
+</div>
+<table class="table table-hover table-bordered shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.Autor)</th>
+            <th>@Html.DisplayNameFor(model => model.AnioPublicacion)</th>
+            <th>@Html.DisplayNameFor(model => model.Paginas)</th>
+            <th>@Html.DisplayNameFor(model => model.Copias)</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Autor</td>
+                <td>@item.AnioPublicacion</td>
+                <td>@item.Paginas</td>
+                <td>@item.Copias</td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
